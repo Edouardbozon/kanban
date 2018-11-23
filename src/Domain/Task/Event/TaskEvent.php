@@ -10,5 +10,5 @@ interface TaskEvent
 
     public function getDateTime(): \DateTimeInterface;
 
-    public function getIntend(): string;
+    public function getMessage(): string;
 }

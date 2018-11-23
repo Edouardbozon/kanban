@@ -5,7 +5,7 @@ namespace App\Domain\Task\Event;
 
 use Ramsey\Uuid\UuidInterface;
 
-class TaskIntendUpdatedEvent implements TaskEvent
+class TaskMessageUpdatedEvent implements TaskEvent
 {
     /**
      * @var UuidInterface
@@ -15,7 +15,7 @@ class TaskIntendUpdatedEvent implements TaskEvent
     /**
      * @var string
      */
-    private $intend;
+    private $message;
 
     /**
      * @var \DateTime
@@ -29,8 +29,8 @@ class TaskIntendUpdatedEvent implements TaskEvent
      */
     public function __construct(UuidInterface $uuid, string $intend)
     {
-        $this->uuid = $uuid;
-        $this->intend = $intend;
+        $this->uuid     = $uuid;
+        $this->message  = $intend;
         $this->dateTime = new \DateTime();
     }
 
@@ -39,9 +39,9 @@ class TaskIntendUpdatedEvent implements TaskEvent
         return $this->uuid;
     }
 
-    public function getIntend(): string
+    public function getMessage(): string
     {
-        return $this->intend;
+        return $this->message;
     }
 
     public function getDateTime(): \DateTimeInterface

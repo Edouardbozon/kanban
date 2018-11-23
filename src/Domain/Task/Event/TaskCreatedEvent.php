@@ -15,7 +15,7 @@ class TaskCreatedEvent implements TaskEvent
     /**
      * @var string
      */
-    private $intend;
+    private $message;
 
     /**
      * @var \DateTime
@@ -25,12 +25,12 @@ class TaskCreatedEvent implements TaskEvent
     /**
      * TaskCreatedEvent constructor.
      * @param UuidInterface $uuid
-     * @param string        $intend
+     * @param string        $message
      */
-    public function __construct(UuidInterface $uuid, string $intend)
+    public function __construct(UuidInterface $uuid, string $message)
     {
-        $this->uuid = $uuid;
-        $this->intend = $intend;
+        $this->uuid     = $uuid;
+        $this->message  = $message;
         $this->dateTime = new \DateTime();
     }
 
@@ -39,9 +39,9 @@ class TaskCreatedEvent implements TaskEvent
         return $this->uuid;
     }
 
-    public function getIntend(): string
+    public function getMessage(): string
     {
-        return $this->intend;
+        return $this->message;
     }
 
     public function getDateTime(): \DateTimeInterface
