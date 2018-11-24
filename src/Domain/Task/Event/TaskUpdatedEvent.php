@@ -5,7 +5,7 @@ namespace App\Domain\Task\Event;
 
 use Ramsey\Uuid\UuidInterface;
 
-class TaskCreatedEvent implements TaskEvent
+class TaskUpdatedEvent implements TaskEvent
 {
     /**
      * @var UuidInterface
@@ -36,14 +36,13 @@ class TaskCreatedEvent implements TaskEvent
      * TaskCreatedEvent constructor.
      * @param UuidInterface $uuid
      * @param string        $message
-     * @param string        $position
      */
-    public function __construct(UuidInterface $uuid, string $message, string $position)
+    public function __construct(UuidInterface $uuid, string $message)
     {
         $this->uuid     = $uuid;
         $this->message  = $message;
         $this->dateTime = new \DateTime();
-        $this->position = $position;
+        $this->tags     = [];
     }
 
     public function getTaskUuid(): UuidInterface
